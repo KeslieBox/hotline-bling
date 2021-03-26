@@ -7,10 +7,25 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%# <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %> 
+   
   </head>
 
   <body>
+    <div class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+      <%# <% if !current_user  %> 
+        <li><%= link_to "Login", '/login' %> </li>
+        <li><%= link_to "Sign Up", '/signup' %></li>
+      <%# <%else%>
+        <%# <% if current_user.admin %> 
+        <%# <% else %> 
+        <%# <% end %>
+        <%# <li><%= link_to "My Account", dispatcher_path(current_user) %>
+        <li><%= link_to "Log Out", '/logout', method: 'delete' %>
+      <%# <% end %>  
+      </ul>
+    </div><!--/.nav-collapse -->
     <%= yield %>
   </body>
 </html>

@@ -1,5 +1,5 @@
 class Caller < ApplicationRecord
-    has_many_calls
-    has_many_dispatchers, through: :calls
-    
+    has_many :calls
+    has_many :dispatchers, through: :calls
+
 end
