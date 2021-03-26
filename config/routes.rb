@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  
+  root 'static#home'
   get '/login', to: 'sessions#new', as: 'login'
   post '/login', to: 'sessions#create'
   get 'logout', to: 'sessions#destroy'
