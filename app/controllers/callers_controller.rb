@@ -1,0 +1,3 @@
+class CallersController < ApplicationController
+    
+end

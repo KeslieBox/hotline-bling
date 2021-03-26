@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  shift: 2021-03-11 17:32:58
+  name: MyString
+
+two:
+  shift: 2021-03-11 17:32:58
+  name: MyString

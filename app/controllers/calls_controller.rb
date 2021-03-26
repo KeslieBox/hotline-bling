@@ -1,0 +1,2 @@
+class CallssController < ApplicationController
+end
