@@ -58,6 +58,7 @@ zip:string
 Dispatcher(is the user right?)
 has_many :calls
 has_many :callers, through: :calls
+has_secure_password
 
 username:string
 password:password_digest
