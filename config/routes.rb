@@ -6,7 +6,10 @@ Rails.application.routes.draw do
   
   get '/signup', to: 'dispatchers#new'
   resources :callers
-  resources :dispatchers
+  resources :dispatchers do
+    resources :calls
+  end
+
   resources :calls
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

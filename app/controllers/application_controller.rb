@@ -1,7 +1,9 @@
 class ApplicationController < ActionController::Base
+    protect_from_forgery with: :exception
     helper_method :current_user
     helper_method :logged_in?
-    
+    before_action :require_login
+
     def current_user
         Dispatcher.find_by(id: session[:user_id])
     end
@@ -10,7 +12,7 @@ class ApplicationController < ActionController::Base
         !!current_user
     end
 
-    def verified_user
-        redirect_to '/' unless logged_in?
+    def require_login
+        redirect_to root_path unless logged_in?
     end 
 end

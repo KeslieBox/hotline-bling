@@ -1,0 +1,13 @@
+<h3><b>Date</b></h3>
+<%= @call.created_at.strftime("Created on %A, %b %e, at %l:%M %p")%><br>
+
+<h3><b>Dispatcher Username</b></h3>
+<%= link_to @call.dispatcher.username, dispatcher_path(@call.dispatcher) %><br>
+
+<h3><b>Caller</b></h3>
+<%= link_to @call.caller.to_s, caller_path(@call.caller) %><br>
+
+<h3><b>Dispatch Log</b></h3>
+<%= @call.dispatch_log %><br>
+
+<%= link_to "Edit Log", edit_dispatcher_call_path(@call.dispatcher)%>

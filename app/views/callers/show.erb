@@ -1,0 +1,18 @@
+<h4>Caller Name</h4>
+<%= @caller.to_s%>
+
+<h4>Caller Contact</h4>
+<%= @caller.phone_number%>
+
+<h4>Caller Address</h4>
+<%= @caller.address%>
+<%= @caller.city%>
+<%= @caller.state%>
+<%= @caller.zipcode%>
+
+<h4>Case Dispatchers</h4>
+<ul>
+    <% @caller.dispatchers.each do |d| %>
+        <li><%= link_to d.username, dispatcher_path(d) %></li>
+    <% end %>
+</ul>

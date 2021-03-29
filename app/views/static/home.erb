@@ -1,1 +1,5 @@
 <h1>Home</h1>
+<% if !logged_in? %>
+    <%= render partial: '/sessions/login', locals: {dispatcher: :dispatcher}%>
+    <%= link_to "Or create a new account", signup_path %>
+<% end %>

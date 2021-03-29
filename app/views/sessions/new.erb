@@ -1,11 +1,3 @@
 <h1>Login</h1>
 
-<%= form_for :dispatcher do |f| %>
-    <%= f.label :username %>
-    <%= f.text_field :username %>
-    
-    <%= f.label :password %>
-    <%= f.password_field :password %>
-
-    <%= f.submit "Login"%>
-<% end %>
+<%= render partial: 'login', locals: {dispatcher: :dispatcher}%>

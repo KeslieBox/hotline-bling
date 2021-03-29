@@ -1,0 +1,15 @@
+<div class="form">
+    <%= form_for call do |f| %>
+    <%# try to turn this into url_helper%>
+        <%= f.hidden_field :caller_id, value: call.caller_id%>
+        <%= f.hidden_field :dispatcher_id, value: call.dispatcher_id%>
+        <%= f.label :date %><br>
+        <%= f.date_field :date %><br><br>
+
+        <%= f.label "Log call details here:" %><br>
+        <%= f.text_area :dispatch_log %><br><br>
+        
+    <%= f.submit call.persisted? ? "Edit Call" : "Add Call"%>
+
+    <% end %>
+</div>
