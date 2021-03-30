@@ -1,5 +1,5 @@
-<h1>Home</h1>
-<% if !logged_in? %>
-    <%= render partial: '/sessions/login', locals: {dispatcher: :dispatcher}%>
-    <%= link_to "Or create a new account", signup_path %>
-<% end %>
+<h2>Welcome to Hotline Bling Dispatch App! </h2><br>
+<% if !logged_in? %> 
+    <h3> <%= link_to "Please log in", login_path %> or <%= link_to "Sign Up", signup_path %></h3> 
+    <%# <%= render partial: '/sessions/login', locals: {dispatcher: :dispatcher}%><br> 
+<% end %> 

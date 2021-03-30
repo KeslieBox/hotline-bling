@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-    skip_before_action :verified_user, only: [:new, :create]
+    skip_before_action :require_login
 
     def new
         @dispatcher = Dispatcher.new
@@ -16,7 +16,7 @@ class SessionsController < ApplicationController
     end
 
     def destroy
-        session.delete :username
-        redirect_to root_path
+        session.clear 
+        redirect_to login_path
     end
 end

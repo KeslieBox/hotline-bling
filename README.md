@@ -43,6 +43,11 @@ User
     -add a new caller to address book
 4. 
 
+##Team??
+has_many :dispatchers
+has_many :callers, through: :dispatchers
+has_many :calls 
+
 
 Caller
 has_many_calls
@@ -112,11 +117,11 @@ Specs:
     -https://apidock.com/rails/ActiveRecord/NamedScope/ClassMethods/scope
     -https://github.com/Awilmerding1/rails-pantry-011121/blob/rails-omniauth/app/models/measurement.rb
         -scope(:quantity_search, ->(quantity) { self.where("quantity >= ?", quantity) })
-- [ ] Include signup
-- [ ] Include login
-- [ ] Include logout
+- [x] Include signup
+- [x] Include login
+- [x] Include logout
 - [ ] Include third party signup/login (how e.g. Devise/OmniAuth)
-- [ ] Include nested resource show or index (URL e.g. users/2/recipes)
+- [x] Include nested resource show or index (URL e.g. users/2/recipes)
 - [ ] Include nested resource "new" form (URL e.g. recipes/1/ingredients/new)
 - [ ] Include form display of validation errors (form URL e.g. /recipes/new)
 
