@@ -10,18 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_11_233723) do
+ActiveRecord::Schema.define(version: 2021_03_30_203850) do
 
   create_table "callers", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
     t.string "phone_number"
+    t.string "phone_number2"
     t.string "address"
     t.string "city"
-    t.string "state"
     t.string "zipcode"
+    t.integer "state_id"
+    t.integer "parish_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["parish_id"], name: "index_callers_on_parish_id"
+    t.index ["state_id"], name: "index_callers_on_state_id"
   end
 
   create_table "calls", force: :cascade do |t|
@@ -38,6 +42,18 @@ ActiveRecord::Schema.define(version: 2021_03_11_233723) do
   create_table "dispatchers", force: :cascade do |t|
     t.string "username"
     t.string "password_digest"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "parishes", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "states", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

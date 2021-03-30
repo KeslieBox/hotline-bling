@@ -4,10 +4,12 @@ class CreateCallers < ActiveRecord::Migration[6.1]
       t.string :first_name
       t.string :last_name
       t.string :phone_number
+      t.string :phone_number2
       t.string :address
       t.string :city
-      t.string :state
       t.string :zipcode
+      t.belongs_to :state
+      t.belongs_to :parish
 
       t.timestamps
     end

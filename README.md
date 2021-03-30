@@ -43,10 +43,10 @@ User
     -add a new caller to address book
 4. 
 
-##Team??
+##Should I add a Team??
 has_many :dispatchers
-has_many :callers, through: :dispatchers
 has_many :calls 
+has_many :callers, through: :calls
 
 
 Caller
@@ -73,7 +73,6 @@ Call
 belongs_to :dispatcher
 belongs_to :caller
 
-date:datetime? or just grab from dispatch_log
 dispatcher_id:belongs_to
 caller_id:belongs_to
 dispatch_log:text
@@ -117,16 +116,17 @@ Specs:
     -https://apidock.com/rails/ActiveRecord/NamedScope/ClassMethods/scope
     -https://github.com/Awilmerding1/rails-pantry-011121/blob/rails-omniauth/app/models/measurement.rb
         -scope(:quantity_search, ->(quantity) { self.where("quantity >= ?", quantity) })
+        -scope(name, scope_options = {}) public
 - [x] Include signup
 - [x] Include login
 - [x] Include logout
 - [ ] Include third party signup/login (how e.g. Devise/OmniAuth)
 - [x] Include nested resource show or index (URL e.g. users/2/recipes)
-- [ ] Include nested resource "new" form (URL e.g. recipes/1/ingredients/new)
-- [ ] Include form display of validation errors (form URL e.g. /recipes/new)
+- [x] Include nested resource "new" form (URL e.g. recipes/1/ingredients/new)
+- [x] Include form display of validation errors (form URL e.g. /recipes/new)
 
 Confirm:
 - [ ] The application is pretty DRY
 - [ ] Limited logic in controllers
 - [ ] Views use helper methods if appropriate
-- [ ] Views use partials if appropriate
+- [x] Views use partials if appropriate

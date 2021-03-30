@@ -2,7 +2,8 @@ Rails.application.routes.draw do
   root 'static#home'
   get '/login', to: 'sessions#new', as: 'login'
   post '/login', to: 'sessions#create'
-  post 'logout', to: 'sessions#destroy'
+  get '/logout', to: 'sessions#destroy'
+  post '/logout', to: 'sessions#destroy'
   
   get '/signup', to: 'dispatchers#new'
   resources :callers

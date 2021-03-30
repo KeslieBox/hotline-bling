@@ -1,4 +1,5 @@
 class CallsController < ApplicationController
+    
     def index
         @calls = Call.all
     end
@@ -23,12 +24,12 @@ class CallsController < ApplicationController
             # @call.build_caller
             #how to prefill form with previous input when not all fields are filled in?
             @caller = Caller.find_by(first_name: params[:first_name])
-            @errors = @call.errors.full_messages
             render :new
         end
     end
 
     def show
+        #can i use scope somewhere like this:
         @call = Call.find_by(id: params[:id])
     end 
     

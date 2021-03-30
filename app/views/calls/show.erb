@@ -8,6 +8,6 @@
 <%= link_to @call.caller.to_s, caller_path(@call.caller) %><br>
 
 <h3><b>Dispatch Log</b></h3>
-<%= @call.dispatch_log %><br>
+<%= @call.dispatch_log %><br><br>
 
-<%= link_to "Edit Log", edit_dispatcher_call_path(@call.dispatcher)%>
+<button><%= link_to "Edit Log", edit_dispatcher_call_path(@call.dispatcher)%></button>
