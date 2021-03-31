@@ -21,7 +21,7 @@ class SessionsController < ApplicationController
     end
 
     def create_w_google
-        @dispatcher = Dispatcher.find_or_create_by(username: auth['usernamer']) do |u|
+        @dispatcher = Dispatcher.find_or_create_by(username: google_auth[:info][:email]) do |u|
             u.password = 'password'
         end
         if @dispatcher.save
@@ -40,7 +40,7 @@ class SessionsController < ApplicationController
 
     private
 
-    def auth
+    def google_auth
         self.request.env['omniauth.auth']
     end
 end
