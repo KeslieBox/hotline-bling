@@ -2,7 +2,8 @@ class Call < ApplicationRecord
     belongs_to :dispatcher
     belongs_to :caller
     validates_presence_of :caller_id, :dispatcher_id, :dispatch_log
-
+    # accepts_nested_attributes_for :state
+    # accepts_nested_attributes_for :parish
     
     def caller_attributes=(caller_attributes)
         if !caller_attributes[:first_name].empty?
@@ -10,5 +11,7 @@ class Call < ApplicationRecord
                 caller.update(caller_attributes)
             end
         end
-    end  
+    end 
+    
+    
 end

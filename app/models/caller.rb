@@ -3,29 +3,33 @@ class Caller < ApplicationRecord
     has_many :dispatchers, through: :calls  
     belongs_to :state
     belongs_to :parish  
-    validates_uniqueness_of :phone_number
-    # validates_length_of :phone_number is: 10
-    validates :phone_number, :phone_number2, length: {is:10}
-    validates_presence_of :first_name, :last_name, :phone_number
-    # before_validation :titlecase_values
+    validates :phone_number, presence: true, length: {is:10}
+    validates_presence_of :first_name, :last_name, :state_id, :parish_id
+    before_validation :titlecase_values
     # before_update :titlecase_values
+  
 
-    # def titlecase_values
-    #     make_titlecase(:first_name)
-    #     make_titlecase(:last_name)
-    #     make_titlecase(:address)
-    #     if self.city
-    #         make_titlecase(:city)
-    #     end
-    #     if self.state
-    #         make_titlecase(:state)
-    #     end
-    #     if self.parish
-    #         binding.pry
+    def parish_name=(parish_name)
+        self.parish = Parish.find_or_create_by(name: parish_name)
+    end
 
-    #         make_titlecase(:parish)
-    #     end
-    # end
+    def parish_name
+        if self.parish
+            self.parish.name
+        end
+    end
+
+    def titlecase_values
+        make_titlecase(:first_name)
+        make_titlecase(:last_name)
+        make_titlecase(:address)
+        if self.city
+            make_titlecase(:city)
+        end
+        if self.parish.name
+            make_titlecase(:parish_name)
+        end
+    end
 
     #make method to clean up titlecase for fields that are filled in
     # def field_present?

@@ -7,7 +7,9 @@
     <%# try to turn hidden fields into url_helper method?%>
         <%= f.hidden_field :caller_id, value: @call.caller_id%>
         <%= f.hidden_field :dispatcher_id, value: @call.dispatcher_id%>
-        
+        <%# <%= f.hidden_field :state_id, value: @caller.state_id%> 
+        <%# <%= f.hidden_field :parish_id, value: @caller.parish_id%>
+
         <%= f.label :date %><br>
         <%= f.date_field :date %><br><br>
 
@@ -27,8 +29,29 @@
             <%= c.text_field :address %>
  
             <%= c.label :city %>
-            <%= c.text_field :city %><br>
 
+            <%= c.text_field :city, list: "city_autocomplete" %>
+                <datalist id="city_autocomplete">
+                    <% cities = [] %>
+                    <% @callers.each do |caller| %>
+                       <% if !cities.include?(caller.city) %>
+                            <% cities << caller.city %>
+                            <option value="<%= caller.city %>">
+                      <% end %>
+                    <% end %>
+                </datalist><br>
+
+            <%= c.label :parish %>
+            <%= c.text_field :parish_name, list: "parish_autocomplete" %>
+                <datalist id="parish_autocomplete">
+                    <% @parishes.each do |parish| %>
+                        <option value="<%= parish.name %>">
+                    <% end %>
+                </datalist>
+
+            <%= c.label :state %>
+            <%= c.collection_select :state_id, @states, :id, :name, include_blank: 'None' %>
+           
             <%= c.label :zipcode %>
             <%= c.text_field :zipcode %><br>
  
@@ -38,26 +61,10 @@
             <%= c.label "Alternative Phone Number" %>
             <%= c.text_field :phone_number2 %><br><br>
 
-        <%= f.fields_for :parish, @parish do |p| %>
-            <%= p.label :parish %>
-            <%= p.text_field :parish_id, list: "parish_autocomplete" %>
-             <datalist id="parish_autocomplete">
-                <% @callers.each do |caller| %>
-                    <option value="<%= caller.parish %>">
-                <% end %>
-            </datalist>
- 
-            <%= c.label :state %>
-            <%= c.text_field :call_ids, list: "state_autocomplete" %>
-             <datalist id="state_autocomplete">
-                <%      @callers.map do |caller| %>
-                    <option value="<%= caller.state %>">
-                <% end %>
-            </datalist>
- 
-            
+        <% end %><br>
 
-        <% end %>
+           
+       
 
         <%= f.label "Log call details here:" %><br>
         <%= f.text_area :dispatch_log %><br><br>

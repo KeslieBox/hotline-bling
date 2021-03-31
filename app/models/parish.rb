@@ -1,3 +1,3 @@
-class Parish < ActiveRecord
+class Parish < ApplicationRecord
     has_many :callers
 end 

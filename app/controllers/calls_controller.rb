@@ -9,21 +9,25 @@ class CallsController < ApplicationController
         @call.build_caller
         @dispatchers = Dispatcher.all
         @callers = Caller.all
+        @states = State.all
+        @parishes = Parish.all
     end
 
-    def create 
+    def create
+        # binding.pry 
         @call = Call.new(call_params)
         #to get rid of hidden field??:
-            @call.dispatcher = current_user
+            # @call.dispatcher = current_user
             #@call.caller = ...??
         if @call.save 
             redirect_to calls_path
         else 
             @dispatchers = Dispatcher.all
             @callers = Caller.all
-            # @call.build_caller
+            @call.build_caller(call_params[:caller_attributes])
             #how to prefill form with previous input when not all fields are filled in?
-            @caller = Caller.find_by(first_name: params[:first_name])
+            @states = State.all
+            @parishes = Parish.all
             render :new
         end
     end
@@ -51,16 +55,21 @@ class CallsController < ApplicationController
     private 
 
     def call_params
-        params.require(:call).permit(:date, :dispatcher_id, :caller_id, :dispatch_log, 
+        params.require(:call).permit(:date, :dispatcher_id, :caller_id, :dispatch_log,
             caller_attributes: [
                 :first_name, 
                 :last_name, 
                 :phone_number, 
+                :phone_number2,
                 :address, 
                 :city, 
-                :state, 
-                :zipcode
-            ]
+                :parish_name, 
+                :state_id,
+                :zipcode,
+                :id
+            ],
+            # state_attributes: [:name]
+            # parish_attribute: [:name]
         )
         
     end  

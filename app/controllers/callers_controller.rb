@@ -20,6 +20,6 @@ class CallersController < ApplicationController
     private 
 
     def caller_params
-        params.require(:caller).permit(:date, :first_name, :last_name, :phone_number, :address, :city, :state, :zipcode,)
+        params.require(:caller).permit(:date, :first_name, :last_name, :phone_number, :address, :city, :zipcode, :state_id, :parish_id)
     end  
 end

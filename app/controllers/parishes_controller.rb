@@ -1,0 +1,3 @@
+class ParishesController < ApplicationController
+
+end

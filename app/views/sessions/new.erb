@@ -9,5 +9,7 @@
     <%= f.label :password %>
     <%= f.password_field :password %><br><br>
 
+    <%= link_to('Log in with Google!', '/auth/google_oauth2') %> 
+
     <%= f.submit "Login"%> or <button><%= link_to "Create a New Account", signup_path %></button>
 <% end %>

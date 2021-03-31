@@ -1,11 +1,11 @@
-<h1>Welcome, <%=@dispatcher.username %>!</h1>
+<h1>Welcome <%= @dispatcher ? @dispatcher.username : "" %> dispatcher!</h1><br>
 
 
 <h3>My Dispatch Logs</h3>
 <%# make this into a table so it's clear what they are looking at %>
 <% @dispatcher.calls.each do |c| %>
     <li><%= link_to c.created_at.strftime("Created on %A, %b %e, at %l:%M %p"), dispatcher_call_path(@dispatcher)%> - <%=c.caller.to_s %> </li>
-<% end %>
+<% end %><br><br>
 
 <h3>My Caller Profiles</h3>
 <% @callers.each do |c| %>
