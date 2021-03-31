@@ -1,6 +1,10 @@
-<h1>Login</h1>
 
 <%= render partial: '/application/errors', locals: {errors: @errors} %>
+
+<a href="/auth/google_oauth2">
+         <img alt="Qries" src="https://i.stack.imgur.com/QPLoG.png" width=156" height="53"></a>
+
+    <p>or</p>
 
 <%= form_for :dispatcher do |f| %>
     <%= f.label :username %>
@@ -9,7 +13,7 @@
     <%= f.label :password %>
     <%= f.password_field :password %><br><br>
 
-    <%= link_to('Log in with Google!', '/auth/google_oauth2') %> 
+    
 
-    <%= f.submit "Login"%> or <button><%= link_to "Create a New Account", signup_path %></button>
+    <%= f.submit "Login"%> or <button><%= link_to "Sign up", signup_path %></button>
 <% end %>

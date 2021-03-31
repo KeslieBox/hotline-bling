@@ -1,4 +1,13 @@
 class CallersController < ApplicationController
+    
+    def index
+        if params[:first_name]
+          @callers = Caller.first_name_search(params[:first_name])
+        else
+          @callers = Caller.all
+        end
+      end
+    
     def new
         @caller = Caller.new
     end 
