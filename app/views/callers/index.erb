@@ -1,0 +1,8 @@
+<h1>Search by caller</h1>
+
+<%= form_with url: callers_path, method: :get do |f| %>
+  <%=f.text_field :first_name %>
+  <%=f. submit"Search"%>
+<%end%> <br>
+
+<%= render partial: 'callers', locals: {callers: @callers}%>
