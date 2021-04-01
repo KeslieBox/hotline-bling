@@ -1,3 +1,7 @@
+
+<div class="callers_list">
 <%callers.each do |c|%>
+<%binding.pry%>
   <li><%= link_to c.to_s, caller_path(c) %> - <%=c.address%> <%=c.city%> <%=c.zipcode%></li>
 <%end%>
+</div>

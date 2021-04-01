@@ -77,6 +77,7 @@ label {
 body{
   background-color: rgb(131, 215, 216);
   font-size: 16px;
+  font-family: monospace;
 }
 
 
@@ -129,6 +130,7 @@ textarea {
 a {
   color: black;
   text-decoration-line: underline;
+  font-family: monospace;
 }
 
 // label {
@@ -156,6 +158,20 @@ form {
 .lists{
   font-family: monospace;
   margin-left: 65px;
+}
+
+.callers_list{
+  font-family: monospace;
+  margin-left: 472px;
+  background-color: #ccf4f3ed;
+  margin-right: 23%;
+  border-width: 2px;
+  margin-left: 23%;
+  border-color: black;
+  width: auto;
+  height: auto;
+  padding: 54px;
+  border-style: solid;
 }
 
 .box{
