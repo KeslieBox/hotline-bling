@@ -4,26 +4,32 @@
         <%= f.hidden_field :caller_id, value: call.caller_id%>
         <%= f.hidden_field :dispatcher_id, value: call.dispatcher_id%>
 
+
+        <h5><%= f.label "Don't Forget:"%></h5><br>
         <%= f.label "Date:" %><br>
         <%= f.date_field :date %><br><br>
 
+        <%= f.label "Select your dispatch username from dropdown:"%><br>
+        <%= f.collection_select :dispatcher_id, dispatchers, :id, :username, include_blank: 'None' %><br><br>  
+
         <% if !call.id %>
+            <h5><%=f.label "Existing Callers"%></h5><br>
             <%= f.label "Select existing caller from the dropdown or add a new one below:"%><br>
             <%= f.collection_select :caller_id, callers, :id, :to_s, include_blank: 'None' %><br><br>
         <% end %>
 
         <%= f.fields_for :caller, caller do |c| %>
-            <%= c.label "Caller Info:" %><br>
-            <%= c.label :first_name %>
-            <%= c.text_field :first_name %>
+            <h5><%= c.label call.id ? "Caller Info:" : "Add New Caller" %></h5><br>
+            <%= c.label :first_name %><br>
+            <%= c.text_field :first_name %><br>
 
-            <%= c.label :last_name %>
+            <%= c.label :last_name %><br>
             <%= c.text_field :last_name %><br>
 
-            <%= c.label :address %>
-            <%= c.text_field :address %>
+            <%= c.label :address %><br>
+            <%= c.text_field :address %><br>
 
-            <%= c.label :city %>
+            <%= c.label :city %><br>
             <%= c.text_field :city, list: "city_autocomplete" %>
                 <datalist id="city_autocomplete">
                     <% cities = [] %>
@@ -35,32 +41,31 @@
                     <% end %>
                 </datalist><br>
 
-            <%= c.label :parish %>
+            <%= c.label :parish %><br>
             <%= c.text_field :parish_name, list: "parish_autocomplete" %>
                 <datalist id="parish_autocomplete">
                     <% parishes.each do |parish| %>
                         <option value="<%= parish.name %>">
                     <% end %>
-                </datalist>
+                </datalist><br>
 
-            <%= c.label :state %>
-            <%= c.collection_select :state_id, states, :id, :name, include_blank: 'None' %>
+            <%= c.label :state %><br>
+            <%= c.collection_select :state_id, states, :id, :name, include_blank: 'None' %><br>
         
-            <%= c.label :zipcode %>
+            <%= c.label :zipcode %><br>
             <%= c.text_field :zipcode %><br>
 
-            <%= c.label :phone_number %>
-            <%= c.text_field :phone_number %>
+            <%= c.label :phone_number %><br>
+            <%= c.text_field :phone_number %><br>
 
-            <%= c.label "Alternative Phone Number" %>
-            <%= c.text_field :phone_number2 %><br><br>
+            <%= c.label "Alternative Phone Number" %><br>
+            <%= c.text_field :phone_number2 %><br>
         <% end %><br>
     
-        <%= f.label "Log call details here:" %><br>
-        <%= f.text_area :dispatch_log %><br><br>
+        <h5><%= f.label "Log call details here:" %></h5><br>
+        <%= f.text_area :dispatch_log %><br>
 
-        <%= f.label "Select your dispatch username from dropdown:"%><br>
-        <%= f.collection_select :dispatcher_id, dispatchers, :id, :username, include_blank: 'None' %><br><br>  
+        
         
         <%= f.submit call.id ? "Edit Call" : "Add Call" %>
 

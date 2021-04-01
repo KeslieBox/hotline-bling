@@ -22,4 +22,3 @@ console.log('Hello World from Webpacker')
 //= require popper
 //= require bootstrap
 
-import "bootstrap"

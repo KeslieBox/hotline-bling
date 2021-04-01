@@ -7,10 +7,15 @@
     <%= csp_meta_tag %>
     
 
-    <%# <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %> 
-    <%# <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>  
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     
+    <%# <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>  
+    <%# <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1"> %>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Train+One&display=swap" rel="stylesheet">
+  
   </head>
 
   <body>
@@ -21,7 +26,7 @@
           <li><%= link_to "Login", login_path %> </li>
           <li><%= link_to "Sign Up", signup_path %></li>
          <% else %> 
-          <li><%= link_to "My Account", dispatcher_path(current_user) %>
+          <li><%= link_to "My Account", dispatcher_path(current_user), id: "account" %>
           <li><%= link_to "New Log", new_dispatcher_call_path(current_user) %>
           <li><%= link_to "All Logs", calls_path %>
           <li><%= link_to "Log Out", '/logout', method: 'delete' %>
