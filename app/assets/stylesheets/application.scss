@@ -16,24 +16,47 @@
 
   /* General Styles */
 
-  .navbar-inverse {
-    background-color:black;
-    border-color:black;
-  } 
+.navbar-inverse {
+  background-color:black;
+  border-color:black;
+} 
 
+.navbar-nav>li>a {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin-left: 5px;
+    margin-right: -16px;
+    display: list-item;
+    font-family: monospace;
+}
 
 h1{
-    margin-right: 20%;
-    margin-left: 26%;
+    text-align: center;
+    font-family: 'Train One', cursive;
+}
+
+
+h2{
+  margin-right: 20%;
+  margin-left: 26%;
   font-family: 'Train One', cursive;
 }
 
-
-h2, h3 {
+h3 {
   margin-top: 20px;
   margin-bottom: 10px;
   margin-left: 35px;
+  font-family: monospace;
+  font-weight: bold;
 }
+
+// h4{
+//     text-align: center;
+//     font-family: 'Train One', cursive;
+//     font-size: 50px;
+//     text-align: center;
+//     margin-top: 167px;
+// }
 
 h5 {
   font-size: 20px;
@@ -55,6 +78,7 @@ body{
   background-color: rgb(131, 215, 216);
   font-size: 16px;
 }
+
 
 button, select {
   text-transform: none;
@@ -102,10 +126,10 @@ textarea {
   width: 540px;
 }
 
-// a {
-//   color: black;
-//   text-decoration: none;
-// }
+a {
+  color: black;
+  text-decoration-line: underline;
+}
 
 // label {
 //   display: inline-block;
@@ -128,5 +152,126 @@ form {
   margin-bottom: 3%;
 }
 
+/*Special*/
+.lists{
+  font-family: monospace;
+  margin-left: 65px;
+}
 
+.box{
+  background-color: #ccf4f3ed;
+    margin: 5%;
+    // margin-right: 30%;
+    // margin-left: 31%;
+    margin-top: auto;
+    margin-bottom: auto;
+    padding-right: 19px;
+    padding-top: 14px;
+    border: black;
+    border-style: solid;
+    border-width: 7px;
+}
+
+.box2{
+  background-color: #ccf4f3ed;
+    margin: 5%;
+    // margin-right: 30%;
+    // margin-left: 31%;
+    margin-top: 32px;
+    margin-bottom: auto;
+    padding-right: 19px;
+    padding-top: 14px;
+    border: black;
+    border-style: solid;
+    border-width: 7px;
+}
+
+.big_box{
+  background-color: gray;
+
+}
+
+.home{
+  background-color: peru;
+  height: 600px;
+  width: 182px;
+  position: absolute;
+  margin-left: 301px;
+  z-index: -3;
+}
+
+.home1{
+  background-color: peru;
+  height: 600px;
+  width: 182px;
+  position: absolute;
+  margin-left: 998px;
+  z-index: -5;
+}
+
+.home2{
+  background-color: peru;
+  height: 600px;
+  width: 80px;
+  position: absolute;
+  margin-left: 154px;
+  z-index: -3;
+}
+
+
+.home3{
+  background-color: peru;
+  height: 600px;
+  width: 80px;
+  position: absolute;
+  margin-left: 1250px;
+  z-index: -5;
+}
+
+.home4{
+  background-color: peru;
+  height: 600px;
+  width: 431px;
+  position: absolute;
+  margin-left: 572px;
+  z-index: -5;
+}
  
+h4{
+  font-family: 'Train One', cursive;
+    font-size: 68px;
+    /* text-align: -webkit-center; */
+    margin-top: -471px;
+    margin-left: 372px;
+    position: relative;
+    color: cornsilk;
+    z-index: 1;
+}
+
+.img1{
+  border: 0;
+  height: 600px;
+  position: absolute;
+  margin-left: 543px;
+  width: 491px;
+  opacity: .5;
+  z-index: -3;
+}
+
+.img2{
+  border: 0;
+  height: 600px;
+  opacity: 0.6;
+  margin-left: 172px;
+  margin-top: 0;
+  position: absolute;
+  z-index: -3;
+}
+
+.img3{
+  border: 0;
+  height: 600px;
+  opacity: 0.5;
+  margin-left: 975px;
+  z-index: -3;
+}
