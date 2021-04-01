@@ -3,6 +3,6 @@
 how to make these only associated with a team...need to add umbrella feature such as a team
 <ul>
 <% @calls.each do |c| %>
-    <li><%= link_to c.created_at.strftime("Created on %A, %b %e, at %l:%M %p"), call_path(c)%> - <%=c.caller.to_s %> </li>
+    <li><%= link_to c.date.strftime("Created on %A, %m/%d/%Y"), call_path(c)%> - <%=c.caller.to_s %> </li>
 <% end %>
 </ul>

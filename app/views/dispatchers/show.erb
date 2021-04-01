@@ -4,7 +4,7 @@
 <h3>My Dispatch Logs</h3>
 <%# make this into a table so it's clear what they are looking at %>
 <% @dispatcher.calls.each do |c| %>
-    <li><%= link_to c.created_at.strftime("Created on %A, %b %e, at %l:%M %p"), dispatcher_call_path(@dispatcher)%> - <%=c.caller.to_s %> </li>
+    <li><%= link_to c.date.strftime("Created on %A, %b %e, at %l:%M %p"), dispatcher_call_path(@dispatcher)%> - <%=c.caller.to_s %> </li>
 <% end %><br><br>
 
 <h3>My Caller Profiles</h3>

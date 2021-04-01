@@ -14,7 +14,6 @@ class CallsController < ApplicationController
     end
 
     def create
-        # binding.pry 
         @call = Call.new(call_params)
         #to get rid of hidden field??:
             # @call.dispatcher = current_user
@@ -47,6 +46,7 @@ class CallsController < ApplicationController
     end
 
     def update
+
         @call = Call.find_by(id: params[:id])
         @call.update(call_params)
         if @call.save

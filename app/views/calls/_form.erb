@@ -4,16 +4,16 @@
         <%= f.hidden_field :caller_id, value: call.caller_id%>
         <%= f.hidden_field :dispatcher_id, value: call.dispatcher_id%>
 
-        <%= f.label :date %><br>
+        <%= f.label "Date:" %><br>
         <%= f.date_field :date %><br><br>
 
         <% if !call.id %>
-            <%= f.label "Select existing caller from the dropdown or add a new one below"%><br>
+            <%= f.label "Select existing caller from the dropdown or add a new one below:"%><br>
             <%= f.collection_select :caller_id, callers, :id, :to_s, include_blank: 'None' %><br><br>
         <% end %>
 
         <%= f.fields_for :caller, caller do |c| %>
-            <%= c.label "Caller Info" %><br>
+            <%= c.label "Caller Info:" %><br>
             <%= c.label :first_name %>
             <%= c.text_field :first_name %>
 
@@ -59,7 +59,7 @@
         <%= f.label "Log call details here:" %><br>
         <%= f.text_area :dispatch_log %><br><br>
 
-        <%= f.label "Select your dispatch username from dropdown"%><br>
+        <%= f.label "Select your dispatch username from dropdown:"%><br>
         <%= f.collection_select :dispatcher_id, dispatchers, :id, :username, include_blank: 'None' %><br><br>  
         
         <%= f.submit call.id ? "Edit Call" : "Add Call" %>

@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 2021_03_30_203850) do
   end
 
   create_table "calls", force: :cascade do |t|
-    t.datetime "date"
+    t.date "date"
     t.text "dispatch_log"
     t.integer "dispatcher_id"
     t.integer "caller_id"
