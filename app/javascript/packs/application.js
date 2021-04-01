@@ -17,3 +17,9 @@
 
 console.log('Hello World from Webpacker')
 // import '../stylesheets/style' 
+
+//= require jquery3
+//= require popper
+//= require bootstrap
+
+import "bootstrap"

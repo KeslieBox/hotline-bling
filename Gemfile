@@ -21,9 +21,11 @@ gem 'jbuilder', '~> 2.7'
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
 gem 'bcrypt', '~> 3.1.7'
-
+gem 'bootstrap', '~> 5.0.0.beta2'
+gem 'sprockets-rails'
+gem 'jquery-rails'
 gem 'bootstrap-sass', '3.3.7'
-gem 'bootstrap', '~> 4.0.0'
+
 gem 'omniauth-google-oauth2'
 gem 'omniauth'
 gem 'dotenv-rails'

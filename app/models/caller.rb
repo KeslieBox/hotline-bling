@@ -6,7 +6,7 @@ class Caller < ApplicationRecord
     validates :phone_number, presence: true, length: {is:10}
     validates_presence_of :first_name, :last_name, :state_id, :parish_id
     before_validation :titlecase_values
-    # before_update :titlecase_values
+    before_update :titlecase_values
     scope(:first_name_search, ->(first_name) { self.where("first_name == ?", first_name) })
   
 

@@ -39,6 +39,11 @@ class CallsController < ApplicationController
     
     def edit 
         @call = Call.find_by(id: params[:id])
+        @caller = @call.caller
+        @dispatchers = Dispatcher.all
+        @callers = Caller.all
+        @states = State.all
+        @parishes = Parish.all
     end
 
     def update
