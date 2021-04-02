@@ -1,6 +1,6 @@
 <%= render partial: '/application/errors', locals: {errors: @call.errors.full_messages} %>
 
-<h4>Edit Dispatch Log Here:</h4>
+<h1>Edit Dispatch Log Here:</h1>
 <%= render partial: 'form', locals: {call: @call, caller: @caller, callers: @callers, dispatchers: @dispatchers, states: @states, parishes: @parishes}%>
 
 

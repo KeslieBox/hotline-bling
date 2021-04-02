@@ -8,7 +8,8 @@ class Caller < ApplicationRecord
     before_validation :titlecase_values
     before_update :titlecase_values
     scope(:first_name_search, ->(first_name) { self.where("first_name == ?", first_name) })
-  
+    scope(:last_name_search, ->(last_name) { self.where("last_name == ?", last_name) })
+
 
     def parish_name=(parish_name)
         self.parish = Parish.find_or_create_by(name: parish_name)

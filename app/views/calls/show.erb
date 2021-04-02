@@ -1,5 +1,7 @@
+
+<div class="calls_show">
 <h3><b>Date</b></h3>
-<%= @call.created_at.strftime("Created on %A, %b %e, at %l:%M %p")%><br>
+<%= @call.created_at.strftime("Created on %A, %b %e, %Y")%><br>
 
 <h3><b>Dispatcher Username</b></h3>
 <%= link_to @call.dispatcher.username, dispatcher_path(@call.dispatcher) %><br>
@@ -11,3 +13,4 @@
 <%= @call.dispatch_log %><br><br>
 
 <button><%= link_to "Edit Log", edit_dispatcher_call_path(@call.dispatcher)%></button>
+</div>

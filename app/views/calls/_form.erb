@@ -4,13 +4,15 @@
         <%= f.hidden_field :caller_id, value: call.caller_id%>
         <%= f.hidden_field :dispatcher_id, value: call.dispatcher_id%>
 
-
-        <h5><%= f.label "Don't Forget:"%></h5><br>
+        <% if !call.id %>
+            <h5><%= f.label "Don't Forget:"%></h5><br>
+        <% end %>
+        
         <%= f.label "Date:" %><br>
         <%= f.date_field :date %><br><br>
 
         <%= f.label "Select your dispatch username from dropdown:"%><br>
-        <%= f.collection_select :dispatcher_id, dispatchers, :id, :username, include_blank: 'None' %><br><br>  
+        <%= f.collection_select :dispatcher_id, dispatchers, :id, :username, include_blank: current_user.username %><br><br>  
 
         <% if !call.id %>
             <h5><%=f.label "Existing Callers"%></h5><br>

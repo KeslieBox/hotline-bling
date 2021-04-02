@@ -17,8 +17,7 @@ class DispatchersController < ApplicationController
     end
 
     def show
-        @dispatcher = Dispatcher.find_by(id: params[:id])
-        @callers = @dispatcher.callers.uniq
+        @callers = current_user.callers.uniq
     end 
 
     

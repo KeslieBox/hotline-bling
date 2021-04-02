@@ -1,4 +1,4 @@
-<h1>Welcome, <%= @dispatcher.username %></h1><br>
+<h1>Welcome, <%= current_user.username %></h1><br>
 
 <%# <div class="big_box"> %>
 
@@ -7,8 +7,8 @@
     <h3>My Dispatch Logs</h3>
     <div class="lists">
         <%# make this into a table so it's clear what they are looking at %>
-        <% @dispatcher.calls.each do |c| %>
-            <li><%= link_to c.date.strftime("Created on %A, %b %e, at %l:%M %p"), dispatcher_call_path(@dispatcher)%> - <%=c.caller.to_s %> </li>
+        <% current_user.calls.each do |c| %>
+            <li><%= link_to c.date.strftime("Created on %A, %b %e"), dispatcher_call_path(current_user, c)%> - <%=c.caller.to_s %> </li>
         <% end %><br><br>
     </div>
 </div>
