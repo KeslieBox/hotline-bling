@@ -5,8 +5,9 @@ class CallersController < ApplicationController
 
         if params[:first_name]
             @callers = Caller.first_name_search(params[:first_name])
-        elsif params[:last_name]
-            @callers = Caller.last_name_search(params[:last_name])
+        # how to search for more than one thing?
+        # elsif params[:last_name]
+        #     @callers = Caller.last_name_search(params[:last_name])
         else
             @callers = Caller.all
         end

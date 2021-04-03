@@ -1,4 +1,5 @@
-<h3>Caller Name</h3>
+
+<%if call_path ? <h3>Caller Name</h3> : %>
 <%= @caller.to_s%><br><br>
 
 <h3>Caller Contact</h3>
@@ -12,10 +13,3 @@
 <%= @caller.city%>,
 <%= @caller.state.name%>,
 <%= @caller.zipcode%><br><br>
-
-<h3>Case Dispatchers</h3>
-<ul>
-    <% @caller.dispatchers.each do |d| %>
-        <li><%= link_to d.username, dispatcher_path(d) %></li>
-    <% end %>
-</ul>

@@ -10,11 +10,11 @@ State.create([{:name=>"Alaska"}, {:name=>"Alabama"}, {:name=>"Arkansas"}, {:name
 
 Parish.create([{name: "Orleans"}, {name: "Jefferson"}])
 
-Dispatcher.create([{username: "user1", password: "password"}, {username: "user2", password: "password"}, {username: "user3", password: "password"}])
+# Dispatcher.create([{username: "user1", password: "password"}, {username: "user2", password: "password"}, {username: "user3", password: "password"}])
 
-Caller.create([{first_name: "Joe", last_name: "Johns", address: "222 Strawberry Ln.", city: "New Orleans", state_id: 19, parish_id: 1, zipcode: '70119', phone_number: '5045555555'}, {first_name: "Ricky", last_name: "Ramirez", address: "1015 Strawberry Ln.", city: "New Orleans", state_id: 19, parish_id: 1, zipcode: '70119', phone_number: '5045555957'}, {first_name: "Janet", last_name: "Jackson", address: "100 Esplanade Ave", city: "New Orleans", state_id: 19, parish_id: 1, zipcode: '70117', phone_number: '5045559087'}])
+# Caller.create([{first_name: "Joe", last_name: "Johns", address: "222 Strawberry Ln.", city: "New Orleans", state_id: 19, parish_id: 1, zipcode: '70119', phone_number: '5045555555'}, {first_name: "Ricky", last_name: "Ramirez", address: "1015 Strawberry Ln.", city: "New Orleans", state_id: 19, parish_id: 1, zipcode: '70119', phone_number: '5045555957'}, {first_name: "Janet", last_name: "Jackson", address: "100 Esplanade Ave", city: "New Orleans", state_id: 19, parish_id: 1, zipcode: '70117', phone_number: '5045559087'}])
 
-Call.create([{ date: "Tue, 09 Mar 2021", dispatch_log: "log of what happened today", dispatcher_id: 1, caller_id: 1}, { date: "Wed, 10 Mar 2021", dispatch_log: "log of what happened today", dispatcher_id: 2, caller_id: 3}, { date: "Tue, 16 Mar 2021", dispatch_log: "log of what happened today", dispatcher_id: 3, caller_id: 2} ])
+# Call.create([{ date: "Tue, 09 Mar 2021", dispatch_log: "log of what happened today", dispatcher_id: 1, caller_id: 1}, { date: "Wed, 10 Mar 2021", dispatch_log: "log of what happened today", dispatcher_id: 2, caller_id: 3}, { date: "Tue, 16 Mar 2021", dispatch_log: "log of what happened today", dispatcher_id: 3, caller_id: 2} ])
 
 
 

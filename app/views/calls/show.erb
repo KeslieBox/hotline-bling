@@ -12,5 +12,7 @@
 <h3><b>Dispatch Log</b></h3>
 <%= @call.dispatch_log %><br><br>
 
-<button><%= link_to "Edit Log", edit_dispatcher_call_path(@call.dispatcher)%></button>
+<% if @call.dispatcher == current_user %>
+    <button><%= link_to "Edit Log", edit_dispatcher_call_path(@call.dispatcher)%></button>
+<%end%>
 </div>

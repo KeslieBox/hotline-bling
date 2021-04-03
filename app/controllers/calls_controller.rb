@@ -5,6 +5,8 @@ class CallsController < ApplicationController
     end
 
     def new
+        # binding.pry
+
         @call = Call.new
         @call.build_caller
         @dispatchers = Dispatcher.all
@@ -24,7 +26,6 @@ class CallsController < ApplicationController
             @dispatchers = Dispatcher.all
             @callers = Caller.all
             @call.build_caller(call_params[:caller_attributes])
-            #how to prefill form with previous input when not all fields are filled in?
             @states = State.all
             @parishes = Parish.all
             render :new
@@ -32,7 +33,6 @@ class CallsController < ApplicationController
     end
 
     def show
-        #can i use scope somewhere like this:
         @call = Call.find_by(id: params[:id])
     end 
     
@@ -43,10 +43,13 @@ class CallsController < ApplicationController
         @callers = Caller.all
         @states = State.all
         @parishes = Parish.all
+        if @call.dispatcher != current_user
+            flash[:message] = "You can only edit calls belonging to your username"
+            redirect_to dispatcher_path(@call.dispatcher)
+        end
     end
 
     def update
-
         @call = Call.find_by(id: params[:id])
         @call.update(call_params)
         if @call.save
@@ -73,8 +76,7 @@ class CallsController < ApplicationController
                 :zipcode,
                 :id
             ],
-            # state_attributes: [:name]
-            # parish_attribute: [:name]
+
         )
         
     end  
