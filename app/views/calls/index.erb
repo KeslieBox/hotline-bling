@@ -1,8 +1,9 @@
 <h1> Dispatch Log Index </h1><br>
 
-how to make these only associated with a team...need to add umbrella feature such as a team
+<div class="box">
 <ul>
 <% @calls.each do |c| %>
     <li><%= link_to c.date.strftime("Created on %A, %m/%d/%Y"), call_path(c)%> - <%=c.caller.to_s %> </li>
 <% end %>
 </ul>
+</div>

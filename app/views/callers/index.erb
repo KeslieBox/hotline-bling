@@ -4,5 +4,6 @@
   <%= f.text_field :first_name %>
   <%= f. submit "Search" %>
 <% end %> <br>
-
-<%= render partial: 'callers', locals: {callers: @callers} %>
+<div class="box">
+  <%= render partial: 'callers', locals: {callers: @callers} %>
+ </div> 

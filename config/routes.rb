@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get '/auth/google_oauth2/callback', to: 'sessions#create_w_google'
   
   get '/signup', to: 'dispatchers#new'
+  post '/signup', to: 'dispatchers#create'
   resources :callers
   resources :dispatchers do
     resources :calls

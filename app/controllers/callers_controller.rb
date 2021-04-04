@@ -1,10 +1,9 @@
 class CallersController < ApplicationController
     
     def index
-        # binding.pry
 
-        if params[:first_name]
-            @callers = Caller.first_name_search(params[:first_name])
+        if params[:first_name] 
+            @callers = Caller.first_name_search(params[:first_name].capitalize.strip)
         # how to search for more than one thing?
         # elsif params[:last_name]
         #     @callers = Caller.last_name_search(params[:last_name])
