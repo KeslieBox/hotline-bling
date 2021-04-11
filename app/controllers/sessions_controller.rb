@@ -17,7 +17,6 @@ class SessionsController < ApplicationController
             @errors = ["Invalid Username or password"]
             render :new
         end 
-
     end
 
     def create_w_google

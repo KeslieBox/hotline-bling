@@ -8,6 +8,7 @@ class Caller < ApplicationRecord
     before_validation :titlecase_values
     before_update :titlecase_values
     scope(:first_name_search, ->(first_name) { self.where("first_name == ?", first_name) })
+    #not using yet
     scope(:last_name_search, ->(last_name) { self.where("last_name == ?", last_name) })
 
 
@@ -21,14 +22,30 @@ class Caller < ApplicationRecord
         end
     end
 
+    # def titlecase_values
+    #     if self.first_name || self.last_name || self.address || self.city || self.parish
+    #     make_titlecase(:first_name)
+    #     make_titlecase(:last_name)
+    #     make_titlecase(:address)
+    #     make_titlecase(:city)
+    #     make_titlecase(:parish_name)
+    #   end
+    # end
+
     def titlecase_values
-        make_titlecase(:first_name)
-        make_titlecase(:last_name)
-        make_titlecase(:address)
+        if self.first_name
+            make_titlecase(:first_name)
+        end
+        if self.last_name
+            make_titlecase(:last_name)
+        end
+        if self.address
+            make_titlecase(:address)
+        end
         if self.city
             make_titlecase(:city)
         end
-        if self.parish.name
+        if self.parish
             make_titlecase(:parish_name)
         end
     end

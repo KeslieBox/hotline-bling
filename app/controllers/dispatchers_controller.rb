@@ -21,6 +21,11 @@ class DispatchersController < ApplicationController
         @callers = current_user.callers.uniq
     end 
 
+    def top_dispatcher
+        @top_dispatcher = Dispatcher.top_dispatch
+    end
+
+    
     
     private
 

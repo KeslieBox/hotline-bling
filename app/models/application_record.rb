@@ -3,10 +3,6 @@ class ApplicationRecord < ActiveRecord::Base
 
    #how to make this work with life cycle/ callback
     def make_titlecase(attribute)
-      # if "#{attribute}".include?('state')
-      #   self.send("#{attribute}=", self.send(attribute).upcase)
-      # else
         self.send("#{attribute}=", self.send(attribute).titlecase)
-      # end
     end
 end

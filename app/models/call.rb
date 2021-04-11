@@ -9,12 +9,12 @@ class Call < ApplicationRecord
 
 
     def caller_attributes=(caller_attributes)
-        if self.caller.id
-            self.caller.update(caller_attributes)
-        elsif !caller_attributes[:first_name].empty? && !self.caller.id
-            # binding.pry
-            self.caller = Caller.find_or_create_by(first_name: caller_attributes[:first_name], last_name: caller_attributes[:last_name], phone_number: caller_attributes[:phone_number]) do |caller|
-                caller.update(caller_attributes)
+        if !caller_attributes[:first_name].empty? 
+            self.caller = Caller.find_by(phone_number: caller_attributes[:phone_number]) 
+            if self.caller
+                self.caller.update(caller_attributes)
+            else
+                self.caller = Caller.create(caller_attributes)
             end
         end
     end 

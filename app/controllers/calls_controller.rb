@@ -5,8 +5,6 @@ class CallsController < ApplicationController
     end
 
     def new
-        # binding.pry
-
         @call = Call.new
         @call.build_caller
         @dispatchers = Dispatcher.all
@@ -16,13 +14,17 @@ class CallsController < ApplicationController
     end
 
     def create
-        @call = Call.new(call_params)
+        # binding.pry
+        @call = Call.create(call_params)
+        # @call.dispatcher = current_user 
         #to get rid of hidden field??:
             # @call.dispatcher = current_user
             #@call.caller = ...??
         if @call.save 
+            # binding.pry
             redirect_to calls_path
         else 
+            # binding.pry
             @dispatchers = Dispatcher.all
             @callers = Caller.all
             @call.build_caller(call_params[:caller_attributes])
