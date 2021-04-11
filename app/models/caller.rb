@@ -3,7 +3,7 @@ class Caller < ApplicationRecord
     has_many :dispatchers, through: :calls  
     belongs_to :state
     belongs_to :parish  
-    validates :phone_number, presence: true, length: {is:10}
+    validates :phone_number, presence: true, length: {is: 10}
     validates_presence_of :first_name, :last_name, :state_id, :parish_id
     before_validation :titlecase_values
     before_update :titlecase_values
@@ -22,33 +22,33 @@ class Caller < ApplicationRecord
         end
     end
 
-    # def titlecase_values
-    #     if self.first_name || self.last_name || self.address || self.city || self.parish
-    #     make_titlecase(:first_name)
-    #     make_titlecase(:last_name)
-    #     make_titlecase(:address)
-    #     make_titlecase(:city)
-    #     make_titlecase(:parish_name)
-    #   end
-    # end
-
     def titlecase_values
-        if self.first_name
-            make_titlecase(:first_name)
-        end
-        if self.last_name
-            make_titlecase(:last_name)
-        end
-        if self.address
-            make_titlecase(:address)
-        end
-        if self.city
-            make_titlecase(:city)
-        end
-        if self.parish
-            make_titlecase(:parish_name)
-        end
+        if self.first_name || self.last_name || self.address || self.city || self.parish
+        make_titlecase(:first_name)
+        make_titlecase(:last_name)
+        make_titlecase(:address)
+        make_titlecase(:city)
+        make_titlecase(:parish_name)
+      end
     end
+
+    # def titlecase_values
+    #     if self.first_name
+    #         make_titlecase(:first_name)
+    #     end
+    #     if self.last_name
+    #         make_titlecase(:last_name)
+    #     end
+    #     if self.address
+    #         make_titlecase(:address)
+    #     end
+    #     if self.city
+    #         make_titlecase(:city)
+    #     end
+    #     if self.parish
+    #         make_titlecase(:parish_name)
+    #     end
+    # end
 
     #make method to clean up titlecase for fields that are filled in
     # def field_present?

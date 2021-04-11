@@ -14,24 +14,24 @@ class CallsController < ApplicationController
     end
 
     def create
-        # binding.pry
-        @call = Call.create(call_params)
-        # @call.dispatcher = current_user 
-        #to get rid of hidden field??:
-            # @call.dispatcher = current_user
-            #@call.caller = ...??
-        if @call.save 
-            # binding.pry
-            redirect_to calls_path
-        else 
-            # binding.pry
-            @dispatchers = Dispatcher.all
-            @callers = Caller.all
-            @call.build_caller(call_params[:caller_attributes])
-            @states = State.all
-            @parishes = Parish.all
-            render :new
-        end
+        # if call_params[:dispatcher_id] != current_user.id
+        #     flash[:message] = "You can only add new calls belonging to your username"
+        #     render :new
+        # else
+            @call = Call.create(call_params)
+        
+            if @call.save 
+                flash[:message] = "Call saved successfully!"
+                redirect_to calls_path
+            else 
+                @dispatchers = Dispatcher.all
+                @callers = Caller.all
+                @call.build_caller(call_params[:caller_attributes])
+                @states = State.all
+                @parishes = Parish.all
+                render :new
+            end
+        # end
     end
 
     def show
@@ -55,9 +55,9 @@ class CallsController < ApplicationController
         @call = Call.find_by(id: params[:id])
         @call.update(call_params)
         if @call.save
-            redirect_to call_path(@call)
+            flash[:message] = "Succesfully updated"
+            redirect_to dispatcher_call_path(@call.dispatcher)
         else  
-            @errors = @call.errors.full_messages
             render :edit
         end 
     end

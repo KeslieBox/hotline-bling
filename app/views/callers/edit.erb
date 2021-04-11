@@ -1,0 +1,49 @@
+<%= render partial: '/application/errors', locals: {errors: @caller.errors.full_messages} %>
+
+<div class="form">
+    <%= form_for @caller do |f| %>
+        <h5><%= f.label @caller.id ? "Caller Info:" : "Add New Caller" %></h5><br>
+        <%= f.label :first_name %><br>
+        <%= f.text_field :first_name %><br>
+
+        <%= f.label :last_name %><br>
+        <%= f.text_field :last_name %><br>
+
+        <%= f.label :address %><br>
+        <%= f.text_field :address %><br>
+
+        <%= f.label :city %><br>
+        <%= f.text_field :city, list: "city_autocomplete" %>
+            <datalist id="city_autocomplete">
+                <% cities = [] %>
+                <% @callers.each do |caller| %>
+                    <% if !cities.include?(@caller.city) %>
+                            <% cities << @caller.city %>
+                            <option value="<%= @caller.city %>">
+                    <% end %>
+                <% end %>
+            </datalist><br>
+
+        <%= f.label :parish %><br>
+        <%= f.text_field :parish_name, list: "parish_autocomplete" %>
+            <datalist id="parish_autocomplete">
+                <% @parishes.each do |parish| %>
+                    <option value="<%= parish.name %>">
+                <% end %>
+            </datalist><br>
+
+        <%= f.label :state %><br>
+        <%= f.collection_select :state_id, @states, :id, :name, include_blank: 'None' %><br>
+    
+        <%= f.label :zipcode %><br>
+        <%= f.text_field :zipcode %><br>
+
+        <%= f.label :phone_number %><br>
+        <%= f.text_field :phone_number %><br>
+
+        <%= f.label "Alternative Phone Number" %><br>
+        <%= f.text_field :phone_number2 %><br>
+        
+        <%= f.submit @caller.id ? "Edit Caller" : "Add Caller" %>
+    <% end %>
+</div>

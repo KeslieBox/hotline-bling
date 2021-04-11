@@ -10,8 +10,8 @@ Rails.application.routes.draw do
   get '/signup', to: 'dispatchers#new'
   post '/signup', to: 'dispatchers#create'
   get '/dispatchers/top_dispatcher', to: 'dispatchers#top_dispatcher'
-  resources :callers
-  resources :dispatchers do
+  resources :callers, except: [:new, :create]
+  resources :dispatchers, except: [:edit, :update, :patch, :put] do
     resources :calls
   end
 

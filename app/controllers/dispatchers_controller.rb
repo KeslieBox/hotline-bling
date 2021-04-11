@@ -1,6 +1,10 @@
 class DispatchersController < ApplicationController
     skip_before_action :require_login, only: [:new, :create]
 
+    def index
+        @dispatchers = Dispatcher.all
+    end
+
     def new
         @dispatcher = Dispatcher.new
     end
@@ -19,14 +23,12 @@ class DispatchersController < ApplicationController
 
     def show
         @callers = current_user.callers.uniq
-    end 
+    end
 
     def top_dispatcher
         @top_dispatcher = Dispatcher.top_dispatch
     end
 
-    
-    
     private
 
     def dispatcher_params

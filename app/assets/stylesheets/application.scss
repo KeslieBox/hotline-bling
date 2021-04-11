@@ -15,6 +15,12 @@
  */
 
   /* General Styles */
+.navbar {
+  position: relative;
+  min-height: 50px;
+  margin-bottom: 40px;
+  border: 1px solid transparent;
+}
 
 .navbar-inverse {
   background-color:black;
@@ -62,14 +68,6 @@ h3 {
   font-weight: bold;
 }
 
-// h4{
-//     text-align: center;
-//     font-family: 'Train One', cursive;
-//     font-size: 50px;
-//     text-align: center;
-//     margin-top: 167px;
-// }
-
 h5 {
   font-size: 20px;
   margin-left: -21px;
@@ -80,7 +78,7 @@ h5 {
 
 h6 {
   text-align: center;
-  font-family: 'Train One', cursive;
+  font-family: 'Train One';
   margin-left: 29%;
   margin-right: 29%;
   background-color: #ccf4f3ed;
@@ -105,6 +103,16 @@ body{
   font-family: monospace;
 }
 
+p{
+  margin: 0px 63px 10px;
+}
+
+li {
+  display: list-item;
+  text-align: -webkit-match-parent;
+  margin-left: 40px;
+}
+
 button#link_button {
   background-color: #ccf4f3ed;
   width: auto;
@@ -124,6 +132,13 @@ button#link_button {
 
 #label_login {
   margin-bottom: 10px;
+}
+
+.submit {
+  width: 181px;
+  margin-left: 62%;
+  margin-right: 33%;
+  margin-top: 2%;
 }
 
 button, select {
@@ -146,20 +161,6 @@ button, html input[type=button], input[type=reset], input[type=submit] {
   height: 29px;
 }
 
-// button, input, optgroup, select, textarea {
-//   color: inherit;
-//   font: inherit;
-//   margin: 0;
-//   background-color: #ccf4f3ed;
-//   border-width: 2px;
-//   border-color: black;
-//   margin: 5px;
-//   margin-left: -1px;
-//   margin-right: 12px;
-//   width: 179px;
-//   height: 25px;
-// }
-
 // long lines instead of short
 button, input, optgroup, select, textarea {
   color: inherit;
@@ -170,10 +171,8 @@ button, input, optgroup, select, textarea {
   background-color: #ccf4f3ed;
   border-width: 2px;
   border-color: black;
- 
   width: 535px;
   height: 29px;
- 
 }
 
 textarea {
@@ -188,21 +187,12 @@ a {
   font-family: monospace;
 }
 
-// label {
-//   display: inline-block;
-//   max-width: 100%;
-//   margin-bottom: 5px;
-//   font-weight: 700;
-//   margin-left: 38px;
-// }
-
 /* Errors */
   .flash{
     color: rgba(152, 6, 6, 0.836)
     }
 
-    
-
+  
 /* Forms */
 form {
   margin-left: 31%;
@@ -219,12 +209,6 @@ form {
 
 .callers_list{
   font-family: monospace;
-  // margin-left: 472px;
-  // background-color: #ccf4f3ed;
-  // margin-right: 23%;
-  // border-width: 2px;
-  // margin-left: 23%;
-  // border-color: black;
   width: auto;
   height: auto;
   padding: 35px;
@@ -240,6 +224,7 @@ form {
   border: black;
   border-style: solid;
   border-width: 7px;
+  padding-bottom: 24px;
 }
 .box{
     margin-top: auto;
@@ -250,10 +235,6 @@ form {
     margin-top: 32px;
     margin-bottom: auto;
 }
-
-// .title_box{
-//   background-color: #ccf4f3ed;
-// }
 
 /*Homepage design */
 .home{

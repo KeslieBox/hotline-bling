@@ -1,21 +1,29 @@
-<h3>Caller Name</h3>
-<%= @caller.to_s%><br><br>
 
-<h3>Caller Contact</h3>
-<%= @caller.phone_number%><br><br>
+<h1>Caller Details</h1><br><br>
+<div class="box">
+<h3>Name</h3>
+<p><%= @caller.to_s%></p>
 
-<h3>Caller Parish</h3>
-<%= @caller.parish.name%> Parish <br><br>
+<h3>Contact</h3>
+<p><%= @caller.phone_number%></p>
 
-<h3>Caller Address</h3>
-<%= @caller.address%><br>
+<h3>Parish</h3>
+<p><%= @caller.parish.name%> Parish </p>
+
+<h3>Address</h3>
+<p><%= @caller.address%>,
 <%= @caller.city%>,
 <%= @caller.state.name%>,
-<%= @caller.zipcode%><br><br>
+<%= @caller.zipcode%></p>
 
 <h3>Case Dispatchers</h3>
-<ul>
+<p><ul>
     <% @caller.dispatchers.each do |d| %>
         <li><%= link_to d.username, dispatcher_path(d) %></li>
     <% end %>
-</ul>
+</ul></p>
+</div>
+
+<% if @caller.dispatchers.include?(current_user) %>
+    <button class="submit"><%= link_to "Edit Caller Details", edit_caller_path(@caller) %></button>
+<% end %>

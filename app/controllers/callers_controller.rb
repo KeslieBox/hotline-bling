@@ -1,7 +1,6 @@
 class CallersController < ApplicationController
     
     def index
-
         if params[:first_name] 
             @callers = Caller.first_name_search(params[:first_name].capitalize.strip)
         # how to search for more than one thing?
@@ -10,24 +9,28 @@ class CallersController < ApplicationController
         else
             @callers = Caller.all
         end
-      end
-    
-    def new
-        @caller = Caller.new
-    end 
-
-    def create
-        @caller = Caller.new(caller_params)
-        if caller.save 
-            redirect_to caller_path(@caller)
-        else  
-            @errors = @caller.errors.full_messages
-            render :new
-        end 
     end
     
     def show
         @caller = Caller.find_by(id: params[:id])
+    end
+
+    def edit
+        @caller = Caller.find_by(id: params[:id])
+        @callers = Caller.all
+        @parishes = Parish.all
+        @states = State.all
+    end
+
+    def update
+        @caller = Caller.find_by(id: params[:id])
+        @caller.update(caller_params)
+        if @caller.save
+            flash[:message] = "Succesfully updated caller!"
+            redirect_to caller_path(@caller)
+        else
+            render :edit
+        end
     end
 
     private 
