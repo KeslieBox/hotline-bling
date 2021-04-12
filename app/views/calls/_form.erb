@@ -3,13 +3,10 @@
         <%# try to turn hidden fields into url_helper method?%>
         <%# <%= f.hidden_field :caller_id, value: call.caller_id%>
         <%# <%= f.hidden_field :dispatcher_id, value: call.dispatcher_id%>
-        <h5><%= f.label "Date & Dispatcher:"%></h5><br>
+        <h5><%= f.label "Date"%></h5><br>
         
         <%= f.label "Date:" %><br>
         <%= f.date_field :date %><br><br>
-
-        <%= f.label "Select your dispatch username from dropdown:"%><br>
-        <%= f.collection_select :dispatcher_id, dispatchers, :id, :username, include_blank: 'Select your username' %><br><br>  
 
         <% if !call.id %>
             <h5><%=f.label "Existing Callers"%></h5><br>

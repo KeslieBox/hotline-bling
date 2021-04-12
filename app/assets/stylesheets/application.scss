@@ -14,7 +14,7 @@
  *= require_self
  */
 
-  /* General Styles */
+  /*Nav Bar */
 .navbar {
   position: relative;
   min-height: 50px;
@@ -46,6 +46,12 @@
     color: cornsilk
 }
 
+#username{
+  margin-left: 350px;
+}
+
+
+  /* General Styles */
 h1{
     text-align: center;
     font-family: 'Train One', cursive;
@@ -188,9 +194,10 @@ a {
 }
 
 /* Errors */
-  .flash{
-    color: rgba(152, 6, 6, 0.836)
-    }
+  .errors{
+    color: rgba(152, 6, 6, 0.836);
+    margin-left: 32px;
+  }
 
   
 /* Forms */

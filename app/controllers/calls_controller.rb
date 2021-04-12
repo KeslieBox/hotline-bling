@@ -7,31 +7,26 @@ class CallsController < ApplicationController
     def new
         @call = Call.new
         @call.build_caller
-        @dispatchers = Dispatcher.all
+        # @dispatchers = Dispatcher.all
         @callers = Caller.all
         @states = State.all
         @parishes = Parish.all
     end
 
     def create
-        # if call_params[:dispatcher_id] != current_user.id
-        #     flash[:message] = "You can only add new calls belonging to your username"
-        #     render :new
-        # else
-            @call = Call.create(call_params)
-        
-            if @call.save 
-                flash[:message] = "Call saved successfully!"
-                redirect_to calls_path
-            else 
-                @dispatchers = Dispatcher.all
-                @callers = Caller.all
-                @call.build_caller(call_params[:caller_attributes])
-                @states = State.all
-                @parishes = Parish.all
-                render :new
-            end
-        # end
+        @call = Call.new(call_params)
+    
+        if @call.save 
+            flash[:message] = "Call saved successfully!"
+            redirect_to calls_path
+        else
+            # @dispatchers = Dispatcher.all
+            @callers = Caller.all
+            @call.build_caller(call_params[:caller_attributes])
+            @states = State.all
+            @parishes = Parish.all
+            render :new
+        end
     end
 
     def show
@@ -39,9 +34,10 @@ class CallsController < ApplicationController
     end 
     
     def edit 
+
         @call = Call.find_by(id: params[:id])
         @caller = @call.caller
-        @dispatchers = Dispatcher.all
+        # @dispatchers = Dispatcher.all
         @callers = Caller.all
         @states = State.all
         @parishes = Parish.all
@@ -58,6 +54,16 @@ class CallsController < ApplicationController
             flash[:message] = "Succesfully updated"
             redirect_to dispatcher_call_path(@call.dispatcher)
         else  
+            @call = Call.find_by(id: params[:id])
+            @caller = @call.caller
+            # @dispatchers = Dispatcher.all
+            @callers = Caller.all
+            @states = State.all
+            @parishes = Parish.all
+            # if @call.dispatcher != current_user
+            #     flash[:message] = "You can only edit calls belonging to your username"
+            #     redirect_to dispatcher_path(@call.dispatcher)
+            # end
             render :edit
         end 
     end

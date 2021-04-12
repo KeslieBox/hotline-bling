@@ -2,7 +2,7 @@
 <h1>Dispatch Log Details</h1><br><br>
 <div class="box">
 <h3><b>Date</b></h3>
-<p><%= @call.created_at.strftime("Created on %A, %b %e, %Y")%></p>
+<p><%= @call.date.strftime("Created on %A, %b %e, %Y")%></p>
 
 <h3><b>Dispatcher Username</b></h3>
 <p><%= link_to @call.dispatcher.username, dispatcher_path(@call.dispatcher) %></p>
