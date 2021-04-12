@@ -2,8 +2,14 @@
 
 <%= form_with url: callers_path, method: :get do |f| %>
   <%= f.text_field :first_name %>
-  <%= f. submit "Search" %>
+  <%= f.submit "Search" %>
 <% end %> <br>
 <div class="box">
-  <%= render partial: 'callers', locals: {callers: @callers} %>
- </div> 
+  <div class="callers_list">
+    <% @callers.each do |c| %>
+      <% c.calls.each do |call| %>
+        <li><%= c.to_s %> - <%= link_to call.date.strftime("%A, %m/%d/%Y"), call_path(call) %> - <%= call.dispatcher.username %></li>
+      <% end %>
+    <% end %>
+  </div>
+</div> 

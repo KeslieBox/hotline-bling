@@ -1,34 +1,31 @@
 
 <h1>Caller Details</h1><br><br>
 <div class="box">
-<h3>Name</h3>
-<p><%= @caller.to_s%></p>
+    <h3>Name</h3>
+    <p><%= @caller.to_s%></p>
 
-<h3>Contact</h3>
-<p><%= @caller.phone_number%></p>
+    <h3>Contact</h3>
+    <p><%= @caller.phone_number%></p>
 
-<h3>Parish</h3>
-<p><%= @caller.parish.name%> Parish </p>
+    <h3>Parish</h3>
+    <p><%= @caller.parish.name%> Parish </p>
 
-<h3>Address</h3>
-<p><%= @caller.address%>,
-<%= @caller.city%>,
-<%= @caller.state.name%>,
-<%= @caller.zipcode%></p>
+    <h3>Address</h3>
+    <p><%= @caller.address%>, <%= @caller.city%>, <%= @caller.state.name%>, <%= @caller.zipcode%></p>
 
-<h3>Case Dispatchers</h3>
-<p><ul>
-    <% @caller.dispatchers.each do |d| %>
-        <li><%= link_to d.username, dispatcher_path(d) %></li>
-    <% end %>
-</ul></p>
+    <h3>Case Dispatchers</h3>
+    <p><ul>
+        <% @caller.dispatchers.each do |d| %>
+            <li><%= link_to d.username, dispatcher_path(d) %></li>
+        <% end %>
+    </ul></p>
 
-<h3>Call Log</h3>
-<p><ul>
-    <% @caller.calls.each do |call| %>
-        <li><%= link_to call.date.strftime("%A, %b %e, %Y"), call_path(call)%> - <%= link_to call.dispatcher.username, dispatcher_path(call.dispatcher) %></li>
-    <% end %>
-</ul></p>
+    <h3>Call Log</h3>
+    <p><ul>
+        <% @caller.calls.each do |call| %>
+            <li><%= link_to call.date.strftime("%A, %b %e, %Y"), call_path(call)%> - <%= link_to call.dispatcher.username, dispatcher_path(call.dispatcher) %></li>
+        <% end %>
+    </ul></p>
 </div>
 
 <% if @caller.dispatchers.include?(current_user) %>

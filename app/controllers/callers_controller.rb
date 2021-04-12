@@ -20,6 +20,11 @@ class CallersController < ApplicationController
         @callers = Caller.all
         @parishes = Parish.all
         @states = State.all
+        # binding.pry
+        if !@caller.dispatchers.include?(current_user)
+            flash[:message] = "You can only edit contacts associated with your username"
+            redirect_to caller_path(@caller)
+        end
     end
 
     def update

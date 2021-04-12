@@ -3,7 +3,7 @@
 <div class="box">
 <ul>
 <% @calls.each do |c| %>
-    <li><%= link_to c.date.strftime("Created on %A, %m/%d/%Y"), call_path(c)%> - <%=c.caller.to_s %> </li>
+    <li><%= link_to c.date.strftime("Created on %A, %m/%d/%Y"), call_path(c)%> - <%=c.caller.to_s %> - <%= c.dispatcher.username %></li>
 <% end %>
 </ul>
 </div>

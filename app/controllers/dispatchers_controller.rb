@@ -16,7 +16,6 @@ class DispatchersController < ApplicationController
             session[:user_id] = @dispatcher.id 
             redirect_to dispatcher_path(@dispatcher)
         else  
-            @errors = @dispatcher.errors.full_messages
             render :new
         end 
     end

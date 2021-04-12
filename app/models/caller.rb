@@ -4,6 +4,7 @@ class Caller < ApplicationRecord
     belongs_to :state
     belongs_to :parish  
     validates :phone_number, presence: true, length: {is: 10}
+    validates_uniqueness_of :phone_number
     validates_presence_of :first_name, :last_name, :state_id, :parish_id
     before_validation :titlecase_values
     before_update :titlecase_values

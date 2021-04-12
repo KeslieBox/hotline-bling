@@ -1,9 +1,0 @@
-
-<div class="callers_list">
-<% callers.each do |c| %>
-  <% c.calls.each do |call| %>
-    
- <li><%= link_to c.to_s, caller_path(c) %> - <%= call.date.strftime("%A, %m/%d/%Y") %></li>
-  <% end %>
-<% end %>
-</div>

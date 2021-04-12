@@ -225,7 +225,9 @@ form {
 
 .box, .box2{
   background-color: #ccf4f3ed;
-  margin: 29%;
+  margin-left: 23%;
+  margin-right: 24%;
+  width: auto;
   padding-right: 19px;
   padding-top: 14px;
   border: black;
@@ -233,9 +235,10 @@ form {
   border-width: 7px;
   padding-bottom: 24px;
 }
-.box{
-    margin-top: auto;
-    margin-bottom: auto;
+.box {
+  margin-top: auto;
+  margin-bottom: auto;
+ 
 }
 
 .box2{
