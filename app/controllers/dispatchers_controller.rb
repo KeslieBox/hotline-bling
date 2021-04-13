@@ -21,7 +21,12 @@ class DispatchersController < ApplicationController
     end
 
     def show
-        @callers = current_user.callers.uniq
+        #need to fix... 
+        if params[:id].to_i != current_user.id
+            redirect_to dispatcher_path(current_user) 
+        else
+            @callers = current_user.callers.uniq
+        end
     end
 
     def top_dispatcher

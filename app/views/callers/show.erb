@@ -15,7 +15,7 @@
 
     <h3>Case Dispatchers</h3>
     <p><ul>
-        <% @caller.dispatchers.each do |d| %>
+        <% @dispatchers.each do |d| %>
             <li><%= link_to d.username, dispatcher_path(d) %></li>
         <% end %>
     </ul></p>
@@ -23,7 +23,7 @@
     <h3>Call Log</h3>
     <p><ul>
         <% @caller.calls.each do |call| %>
-            <li><%= link_to call.date.strftime("%A, %b %e, %Y"), call_path(call)%> - <%= link_to call.dispatcher.username, dispatcher_path(call.dispatcher) %></li>
+            <li><%= link_to call.date.strftime("%A, %b %e, %Y"), call_path(call)%> - <%= call.dispatcher.username %></li>
         <% end %>
     </ul></p>
 </div>

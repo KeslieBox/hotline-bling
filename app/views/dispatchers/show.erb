@@ -1,24 +1,22 @@
 <h1>Welcome, <%= current_user.username %></h1><br>
 
-<%# <div class="big_box"> %>
-
-
 <div class="box">
-    <h3>My Dispatch Logs</h3>
+    <h3 class="profile">My Dispatch Logs</h3>
     <div class="lists">
         <%# make this into a table so it's clear what they are looking at %>
-        <% current_user.calls.each do |c| %>
-            <li><%= link_to c.date.strftime("Created on %A, %b %e"), dispatcher_call_path(current_user, c)%> - <%=c.caller.to_s %> </li>
-        <% end %><br><br>
+        <table style="width:100%">
+            <tr>
+                <th>Call Log </th> 
+                <th>Caller Name </th>
+                <th>Dispatcher </th>
+            </tr>
+            <% current_user.calls.each do |c| %>
+                <tr></tr>
+                <td><%= link_to c.date.strftime("Created on %A, %b %e"), dispatcher_call_path(current_user, c)%></td>
+                <td><%=link_to c.caller.to_s, caller_path(c.caller) %></td>
+                <td><%= link_to c.dispatcher.username, dispatcher_path(c.dispatcher)%></td>
+            <% end %><br><br>
+    
+        </table>
     </div>
 </div>
-
-<div class="box2">
-<h3>My Caller Profiles</h3>
-<div class="lists">
-    <% @callers.each do |c| %>
-        <li><%=link_to c.to_s, caller_path(c) %> </li>
-    <% end %><br><br>
-</div>
-
-<%# </div> %>

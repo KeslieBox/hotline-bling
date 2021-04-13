@@ -1,4 +1,5 @@
 class CallersController < ApplicationController
+    before_action :current_caller, except: :index
     
     def index
         if params[:first_name] 
@@ -10,17 +11,15 @@ class CallersController < ApplicationController
             @callers = Caller.all
         end
     end
-    
+
     def show
-        @caller = Caller.find_by(id: params[:id])
+        @dispatchers = @caller.dispatchers.uniq
     end
 
     def edit
-        @caller = Caller.find_by(id: params[:id])
         @callers = Caller.all
         @parishes = Parish.all
         @states = State.all
-        # binding.pry
         if !@caller.dispatchers.include?(current_user)
             flash[:message] = "You can only edit contacts associated with your username"
             redirect_to caller_path(@caller)
@@ -28,13 +27,16 @@ class CallersController < ApplicationController
     end
 
     def update
-        @caller = Caller.find_by(id: params[:id])
-        @caller.update(caller_params)
-        if @caller.save
+        if @caller && @caller.update(caller_params)
             flash[:message] = "Succesfully updated caller!"
             redirect_to caller_path(@caller)
-        else
+        elsif @caller
+            @callers = Caller.all
+            @parishes = Parish.all
+            @states = State.all
             render :edit
+        else
+           redirect_to caller_path(@caller)
         end
     end
 

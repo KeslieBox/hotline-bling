@@ -2,15 +2,11 @@ class Call < ApplicationRecord
     belongs_to :dispatcher
     belongs_to :caller
     validates_presence_of :caller_id, :dispatcher_id, :dispatch_log
-    # accepts_nested_attributes_for :state
-    # accepts_nested_attributes_for :parish
-    # scope(:calls_by_caller, -> {group(:caller_id)})
-    scope(:calls_by_caller, ->(first_name) { self.where("first_name == ?", first_name) })
-
 
     def caller_attributes=(caller_attributes)
         if !caller_attributes[:first_name].empty? 
-            self.caller = Caller.find_by(phone_number: caller_attributes[:phone_number]) 
+            self.caller = Caller.find_by(phone_number: caller_attributes[:phone_number]) || Caller.find_by(first_name: caller_attributes[:first_name], last_name: caller_attributes[:last_name])
+            # self.caller = Caller.find_by(phone_number: caller_attributes[:phone_number]) 
             if self.caller
                 self.caller.update(caller_attributes)
             else

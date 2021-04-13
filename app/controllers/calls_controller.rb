@@ -1,5 +1,6 @@
 class CallsController < ApplicationController
-    
+    before_action :current_call, except: [:index, :new, :create]
+
     def index
         @calls = Call.all
     end
@@ -26,14 +27,9 @@ class CallsController < ApplicationController
             @parishes = Parish.all
             render :new
         end
-    end
-
-    def show
-        @call = Call.find_by(id: params[:id])
     end 
     
     def edit 
-        @call = Call.find_by(id: params[:id])
         @caller = @call.caller
         @callers = Caller.all
         @states = State.all
@@ -45,13 +41,12 @@ class CallsController < ApplicationController
     end
 
     def update
-        @call = Call.find_by(id: params[:id])
         @call.update(call_params)
         if @call.save
             flash[:message] = "Succesfully updated call!"
             redirect_to dispatcher_call_path(@call.dispatcher)
+            # redirect_to call_path(@call)
         else  
-            @call = Call.find_by(id: params[:id])
             @caller = @call.caller
             @callers = Caller.all
             @states = State.all

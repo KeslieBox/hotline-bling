@@ -1,7 +1,10 @@
 module CallsHelper
 
-    #does this make sense??
-    def form_url_helper(dispatcher)
-        dispatcher ? dispatcher_calls_path(dispatcher) : calls_path
+    def city_autocomplete(callers) 
+        callers.map do |caller|
+            caller.city 
+        end.uniq
     end
+
+    
 end
