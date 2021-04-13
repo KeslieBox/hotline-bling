@@ -1,66 +1,27 @@
-#Hotline Bling
+# Hotline Bling
 
-Dispatch hotline application to keep track of call logs and caller information for a call center hotline.
+This is an application created for Dispatch Hotlines/ call centers to help keep track of call logs and store caller information in a secure database.
 
-Getting Started
--Fork and clone the repository
--cd into the directory
--run $rails s in the terminal to start your server
+## Cloning & Setup
 
+-Clone the repository & run ```git clone <github-repo-code>``` 
 
-In your terminal:
+-```cd``` into the directory
 
-git clone <github-repo-code>
-Go to the first level directory that contains all of this repo's folders.
+-run ```bin/rails db:migrate RAILS_ENV=development```
 
-bundle install #this will install any necessary gems
-Finally go to http://localhost:3000/.
+-run ```bundle install```
 
-Enjoy!
+-run ```rails s``` in the terminal to start your server
 
-Note: The database is already provided; but if you want to seed the database over:
+-Finally go to <http://localhost:3000/> in your browser 
 
-Say what the step will be
+Enjoy your dispatch!
 
-Give the example
-And repeat
+## Google Authentication
 
-until finished
-End with an example of getting some data out of the system or using it for a little demo
+**Note: In order to use google authentication, you will need to utlitize your own Google Client Key and Secret. 
 
-Running the tests
-Explain how to run the automated tests for this system
+-If you decide to use this third party login, create a file called ```.env``` and paste ```GOOGLE_CLIENT_ID=``` followed by your client id and ```GOOGLE_CLIENT_SECRET=``` followed by your Google secret.
 
-Sample Tests
-Explain what these tests test and why
-
-Give an example
-Style test
-Checks if the best practices and the right coding style has been used.
-
-Give an example
-Deployment
-Add additional notes to deploy this on a live system
-
-Built With
-Contributor Covenant - Used for the Code of Conduct
-Creative Commons - Used to choose the license
-Contributing
-Please read CONTRIBUTING.md for details on our code of conduct, and the process for submitting pull requests to us.
-
-Versioning
-We use Semantic Versioning for versioning. For the versions available, see the tags on this repository.
-
-Authors
-Billie Thompson - Provided README Template - PurpleBooth
-See also the list of contributors who participated in this project.
-
-License
-This project is licensed under the CC0 1.0 Universal Creative Commons License - see the LICENSE.md file for details
-
-Acknowledgments
-Hat tip to anyone whose code is used
-Inspiration
-etc
-
-
+-Otherwise, to create an account, click the link to "signup" and create an account name and password. From here, you can use the navigation bar to add a new call, view your calls, view all calls, edit calls, etc.
